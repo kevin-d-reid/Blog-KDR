@@ -1,0 +1,2 @@
+# Ignore Pelican cache directory
+__pycache__/
