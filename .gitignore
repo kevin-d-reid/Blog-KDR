@@ -1,2 +1,4 @@
-# Ignore Pelican cache directory
+# Pelican cache directory
 __pycache__/
+# Local output folder
+output/
