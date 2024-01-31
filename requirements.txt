@@ -1,9 +1,0 @@
-pelican
-feedgenerator
-jinja2
-pygments
-docutils
-blinker
-unidecode
-MarkupSafe
-python-dateutil
