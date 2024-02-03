@@ -15,19 +15,19 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-# Blogroll
+# Links
 LINKS = (
-    ("Pelican", "https://getpelican.com/"),
-    ("Python.org", "https://www.python.org/"),
-    ("Jinja2", "https://palletsprojects.com/p/jinja/"),
-    ("You can modify those links in your config file", "#"),
+    ("mail@kevindreid.com", "mailto:mail@kevindreid.com"),
+    ("LinkedIn", "www.linkedin.com/in/kevin-d-reid"),
+    ("Github", "https://github.com/kevin-d-reid"),
+    # ("You can modify those links in your config file", "#"),
 )
 
 # Social widget
-SOCIAL = (
-    ("You can add links in your config file", "#"),
-    ("Another social link", "#"),
-)
+# SOCIAL = (
+#     ("You can add links in your config file", "#"),
+#     ("Another social link", "#"),
+# )
 
 DEFAULT_PAGINATION = 5
 
