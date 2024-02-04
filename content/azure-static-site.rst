@@ -7,6 +7,8 @@ How to deploy a Pelican static website using Azure Static Web Apps
 :category: Cloud
 :tags: static site, meta, git, azure, ci/cd
 :author: Kevin D. Reid
+:slug: azure-static-site
+:url: azure-static-site
 :status: published
 
 
@@ -50,12 +52,12 @@ The title is enclosed by the ``=`` sign on top and bottom, though only the botto
 
 .. _content: https://docs.getpelican.com/en/latest/content.html
 
-.. image:: images/AzureStaticSite/PelicanQuickstart.png
+.. image:: images/azure-static-site/pelican-quickstart.png
 	:alt: Pelican quickstart settings
 
 The settings are pretty straightforward, with the only major changes from default being no URL prefix and no tasks.py/Makefile for automation. We can now move our test article to the content directory and run the command ``pelican content`` to generate our static site for the first time. This will take everything in the content directory and apply the default templates to it, with the result being complete HTML pages auto-generated in the output directory. To view the newly generated pages, Pelican has a preview environment accessible through the command ``pelican --listen`` which will present the generated content as if it was already hosted, the caveat being that it's only for the local computer. Navigating to the address ``http://127.0.0.1:8000`` will present our site with its default theme and test article, which looks like this:
 
-.. image:: images/AzureStaticSite/PelicanDefaultSite.png
+.. image:: images/azure-static-site/pelican-default-site.png
 	:alt: Default Pelican generated site
 
 
@@ -74,22 +76,22 @@ We'll start with initializing the local Git repo, which can be done by entering 
 
 From here, we can enter ``git add .`` to track all files within the directory. Git will pickup on the .gitignore file and subsequently ignore the cache directory, which can be verified with ``git status`` giving the following output:
 
-.. image:: images/AzureStaticSite/GitInitialStatus.png
+.. image:: images/azure-static-site/git-initial-status.png
 	:alt: Git status for default Pelican site
 
 Entering ``git commit`` will commit the now-tracked files to the Git repository. I added a brief commit message with the ``-m`` switch to describe the changes, generally a good idea if you need to refer back to old changes.
 
-.. image:: images/AzureStaticSite/GitInitialCommit.png
+.. image:: images/azure-static-site/git-initial-commit.png
 	:alt: Git commit for default Pelican site
 
 With that, our new Pelican site is now recorded in the repository. This satisfies the need to view history and go back in time, but remote hosting of the repository will be done with Github_. This will require singing up for an account, then clicking the green ``New`` button on the main page or via Account → Your Repositories at the top right of the page.
 
-.. image:: images/AzureStaticSite/GithubBlogRepo.png
+.. image:: images/azure-static-site/github-blog-repo.png
 	:alt: Creating a new repository on Github
 
 Review the settings above, then select ``Create Repository`` at the bottom right to create the empty repository. Github provides some additional instructions here for cloning the repo to a computer or populating the repo with a local Git repository, which we will do with the Github-provided commands.
 
-.. image:: images/AzureStaticSite/GitUploadRepo.png
+.. image:: images/azure-static-site/git-upload-repo.png
 	:alt: Uploading local Git repo to Github
 
 
@@ -114,7 +116,7 @@ Before deploying our blog web app, we'll need to select where it will be located
 
 Since setting up the static web app is a one-time thing, I used the Azure Portal to set things up manually. The Websites management group was already created, so I made a new subscription under it titled Blog-KDR, making sure to select the right management group under the Advanced tab. After that, go to the Static Web Apps page via the search bar at the top of the portal and select ``Create static web app``.
 
-.. image:: images/AzureStaticSite/SWAcreation.png
+.. image:: images/azure-static-site/static-web-app-creation.png
 	:alt: Azure Static Web App creation
 
 As shown in the image above, the static web app and its resource group are named according to the hierarchical diagram. We're using the Free plan and connecting it to my Github account, while the deployment region WestUS2 is only required for Azure Functions. The last section titled Build Details is where a workflow file is created for automation, which we'll customize soon. For now, we'll enter our info and select Review + Create at the bottom of the page, then Create to deploy the static web app.
@@ -179,7 +181,7 @@ This portion of the YAML file handles the deployment from Github to Azure Static
 
 Starting from the top; we checkout the repository, setup Python, install Pelican, build our Pelican site, then deploy it to Azure Static Web Apps. I made another test article, then committed that change to Git without regenerating the site locally. Upon pushing to Github, the workflow runs automatically and generates the site before deploying to Azure.
 
-.. image:: images/AzureStaticSite/WorkflowTest.png
+.. image:: images/azure-static-site/workflow-test.png
 	:alt: Successful automated deployment to Azure without local generation
 
 
@@ -195,7 +197,7 @@ Our blog is almost ready for sharing with the world, but having to link people t
 
 To start using this new domain, head back to the Static Web App and select Custom domains on the sidebar under Settings. Select Add, then Custom domain on other DNS. Enter your domain, then select Next to have Azure give you the records to enter into your registrar of choice. If you're using a root domain, you'll need to use the TXT record before adding the CNAME/ALIAS/A record that actually directs traffic.
 
-.. image:: images/AzureStaticSite/CustomDomain.png
+.. image:: images/azure-static-site/custom-domain.png
 	:alt: Static site with custom domain showing SSL cert status
 
 With the records added and DNS propagated, our blog is now accessible via the root domain. Clicking the lock icon next to the address bar will show the free SSL certificate that Azure Static Web Apps provides. I also setup a second custom domain for the WWW prefix. The free plan supports 2 custom domains, so if you want additional domains or prefixes you'll have to upgrade to the Standard plan.
@@ -210,12 +212,12 @@ NOTE: I also took the opportunity to change the ``main`` branch name to ``prod``
 
 On our ``test`` branch, we can now make changes normally and push them upstream without affecting the main production branch. Moving our changes from ``test`` to ``prod`` is done through a pull request on Github. With Azure Static Web Apps, initiating a pull request will spool up a temporary preview environment where you can view changes before they go live. On the Github repo page, select the Pull Requests tab then New Pull Request. We can select two branches to compare the differences between them, in this case ``prod`` as the base with ``test`` as the comparison.
 
-.. image:: images/AzureStaticSite/CreatePullReq.png
+.. image:: images/azure-static-site/create-pull-req.png
 	:alt: Creating a pull request from test to prod
 
 With our pull request now created, the Github Actions workflow will trigger and start deployment to the preview environment. We can navigate to the Azure Static Web App page and view our production and preview environments on the Environments sidebar tab. Clicking the Browse link next to each environment will open it, which provides a good opportunity to load them side-by-side. If you're satisfied with the changes made, merging the pull request will deploy the updated site to the production environment and automatically tear down the test.
 
-.. image:: images/AzureStaticSite/OpenPullReq.png
+.. image:: images/azure-static-site/open-pull-req.png
 	:alt: Open pull request with all checks passed and ready to merge
 
 Before wrapping up this section, I'll make sure to resync the local and remote branches. Entering ``git pull`` will sync the ``prod`` branch, and I'll use ``git pull origin prod`` in the test branch to pull the latest commit from prod, then ``git push`` to finally sync the local and remote ``test`` branches. Our deployments are now closer to how the pros do it, with our workflow now looking like this::
@@ -238,7 +240,7 @@ Pelican's default theme is nice and basic, but we can easily change it out for s
 
 With a quick push to our test branch on Github and pull request started, our site will automatically deploy to the preview environment with the new theme. After the testing is done and the pull request merged, we can go to our production site and see our new theme live.
 
-.. image:: images/AzureStaticSite/OctopressTheme.png
+.. image:: images/azure-static-site/octopress-theme.png
 	:alt: Octopress inspired theme deployed on production Static Web App
 
 
