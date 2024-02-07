@@ -17,7 +17,7 @@ AUTHOR_FEED_RSS = None
 
 # Links
 LINKS = (
-    ("mail@kevindreid.com", "mailto:mail@kevindreid.com"),
+    # ("mail@kevindreid.com", "mailto:mail@kevindreid.com"),
     ("LinkedIn", "https://www.linkedin.com/in/kevin-d-reid"),
     ("Github", "https://github.com/kevin-d-reid"),
     # ("You can modify those links in your config file", "#"),
