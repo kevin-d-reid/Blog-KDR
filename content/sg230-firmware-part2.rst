@@ -2,7 +2,7 @@
 Modding a network appliance firmware for greater security Part 2: Firmware modules
 ==================================================================================
 
-:date: 2024-02-07 19:00
+:date: 2024-02-11 09:15
 
 :category: Hardware
 :tags: homelab, firewall, security
