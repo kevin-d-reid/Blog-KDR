@@ -1,6 +1,7 @@
 AUTHOR = 'Kevin D. Reid'
 SITENAME = "Kevin's Tech Blog"
 SITEURL = ""
+FAVICON_FILENAME = "images/favicon-32x32.png"
 
 PATH = "content"
 
