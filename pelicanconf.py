@@ -1,13 +1,14 @@
-AUTHOR = 'Kevin D. Reid'
+AUTHOR = "Kevin D. Reid"
 SITENAME = "Kevin's Tech Blog"
 SITEURL = ""
 FAVICON_FILENAME = "images/favicon-32x32.png"
 
 PATH = "content"
+ARTICLE_PATHS = ["articles"]
+PAGE_PATHS = ["pages"]
 
-TIMEZONE = 'America/Vancouver'
-
-DEFAULT_LANG = 'en'
+TIMEZONE = "America/Vancouver"
+DEFAULT_LANG = "en"
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -24,13 +25,13 @@ LINKS = (
     # ("You can modify those links in your config file", "#"),
 )
 
-DEFAULT_PAGINATION = 5
+DEFAULT_PAGINATION = 8
 
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
 
-AUTHOR_URL = 'author/{slug}'
-CATEGORY_URL = 'category/{slug}'
-TAG_URL = 'tag/{slug}'
+AUTHOR_URL = "author/{slug}"
+CATEGORY_URL = "category/{slug}"
+TAG_URL = "tag/{slug}"
 
-THEME = 'theme/octopress'
+THEME = "theme/octopress"
