@@ -25,7 +25,7 @@ LINKS = (
     # ("You can modify those links in your config file", "#"),
 )
 
-DEFAULT_PAGINATION = 8
+DEFAULT_PAGINATION = 5
 
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
