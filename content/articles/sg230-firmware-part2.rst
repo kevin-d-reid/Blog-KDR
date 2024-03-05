@@ -8,7 +8,7 @@ Modding a network appliance firmware for greater security Part 2: Firmware modul
 :tags: homelab, firewall, security
 :author: Kevin D. Reid
 :slug: sg230-firmware-part2
-:url: sg230-firmware-part2
+:url: modding-firewall-firmware-part2
 :status: published
 
 Welcome back to part 2 of my foray into firmware modding! With our investigation concluded in part 1, we can dive into upgrading the firmware, starting with the different modules that it's composed of. Firmware modules are used to interface with and extend the functionality of hardware devices separate from the main firmware. Which modules will be used depends on whether UEFI boot or Legacy BIOS boot mode is selected, with UEFI using EFI and Legacy using OROM. We'll be tackling both EFI and OROM modules in this order; SATA, Network, and Video.

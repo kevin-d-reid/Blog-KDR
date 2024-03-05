@@ -8,7 +8,7 @@ Modding a network appliance firmware for greater security Part 1: Investigation
 :tags: homelab, firewall, security
 :author: Kevin D. Reid
 :slug: sg230-firmware-part1
-:url: sg230-firmware-part1
+:url: modding-firewall-firmware-part1
 :status: published
 
 When it comes to defense in depth, the perimeter is one of the first lines encountered. For many enterprises, that comes in the form of an NGFW or Next Generation Firewall, which is a device that builds upon the traditional firewall roles of packet filtering, NAT, and VPN support with intrusion prevention systems and deep packet inspection. I already knew I wanted one for my network and what operating system to run, but hardware selection was another issue. Virtualization of a firewall is growing in popularity for those looking to converge as much as they can on one box, but I favoured the more traditional route of a dedicated network appliance.
