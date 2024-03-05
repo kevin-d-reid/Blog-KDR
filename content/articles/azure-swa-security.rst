@@ -5,9 +5,9 @@ How to improve security for an Azure Static Web App website
 :date: 2024-03-03 17:30
 
 :category: Cloud
-:tags: Website, meta, Azure, CI/CD, Github, security
+:tags: Azure, CI/CD, Github, Security, Website
 :author: Kevin D. Reid
-:slug: azure-swa-security
+:slug: azure-static-web-app-security
 :url: azure-static-web-app-security
 :status: published
 

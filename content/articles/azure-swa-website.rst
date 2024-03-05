@@ -5,9 +5,9 @@ How to deploy a Pelican static website using Azure Static Web Apps
 :date: 2024-02-03 15:40
 
 :category: Cloud
-:tags: Website, meta, Azure, CI/CD, Git, Github
+:tags: Azure, CI/CD, Git, Github, Website
 :author: Kevin D. Reid
-:slug: azure-swa-website
+:slug: azure-static-web-app-website
 :url: azure-static-web-app-website
 :status: published
 

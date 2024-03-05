@@ -5,9 +5,9 @@ Modding a network appliance firmware for greater security Part 1: Investigation
 :date: 2024-02-04 10:10
 
 :category: Hardware
-:tags: homelab, firewall, security
+:tags: Firewall, Homelab, Modding, Security
 :author: Kevin D. Reid
-:slug: sg230-firmware-part1
+:slug: modding-firewall-firmware-part1
 :url: modding-firewall-firmware-part1
 :status: published
 
